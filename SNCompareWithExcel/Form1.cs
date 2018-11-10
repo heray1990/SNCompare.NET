@@ -15,6 +15,7 @@ namespace SNCompareWithExcel
         public Form1()
         {
             InitializeComponent();
+            this.textBoxSN.KeyDown += new KeyEventHandler(textBoxSN_KeyDown);
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
@@ -31,6 +32,14 @@ namespace SNCompareWithExcel
             }
 
             openFileDialog.Dispose();
+        }
+
+        private void textBoxSN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                labelResult.BackColor = Color.Green;
+            }
         }
     }
 }

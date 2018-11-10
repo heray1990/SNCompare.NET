@@ -33,7 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxFile = new System.Windows.Forms.TextBox();
             this.buttonBrowse = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.labelResult = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -41,13 +40,13 @@
             // 
             this.textBoxSN.Location = new System.Drawing.Point(83, 12);
             this.textBoxSN.Name = "textBoxSN";
-            this.textBoxSN.Size = new System.Drawing.Size(298, 21);
+            this.textBoxSN.Size = new System.Drawing.Size(295, 21);
             this.textBoxSN.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(21, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 1;
@@ -56,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 54);
+            this.label2.Location = new System.Drawing.Point(21, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 2;
@@ -66,12 +65,12 @@
             // 
             this.textBoxFile.Location = new System.Drawing.Point(83, 51);
             this.textBoxFile.Name = "textBoxFile";
-            this.textBoxFile.Size = new System.Drawing.Size(235, 21);
+            this.textBoxFile.Size = new System.Drawing.Size(226, 21);
             this.textBoxFile.TabIndex = 3;
             // 
             // buttonBrowse
             // 
-            this.buttonBrowse.Location = new System.Drawing.Point(324, 51);
+            this.buttonBrowse.Location = new System.Drawing.Point(321, 51);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(57, 21);
             this.buttonBrowse.TabIndex = 4;
@@ -79,31 +78,24 @@
             this.buttonBrowse.UseVisualStyleBackColor = true;
             this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 95);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "结果";
-            // 
             // labelResult
             // 
-            this.labelResult.Location = new System.Drawing.Point(81, 95);
+            this.labelResult.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelResult.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelResult.Location = new System.Drawing.Point(23, 92);
             this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(300, 24);
+            this.labelResult.Size = new System.Drawing.Size(355, 96);
             this.labelResult.TabIndex = 6;
-            this.labelResult.Text = "Please Scan SN.";
+            this.labelResult.Text = "请扫码";
             this.labelResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 326);
+            this.ClientSize = new System.Drawing.Size(399, 209);
             this.Controls.Add(this.labelResult);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.textBoxFile);
             this.Controls.Add(this.label2);
@@ -124,7 +116,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxFile;
         private System.Windows.Forms.Button buttonBrowse;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelResult;
     }
 }
