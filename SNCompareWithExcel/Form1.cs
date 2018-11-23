@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic.FileIO;
 
 namespace SNCompareWithExcel
 {
@@ -23,10 +24,10 @@ namespace SNCompareWithExcel
             OpenFileDialog openFileDialog = new OpenFileDialog();
  
             openFileDialog.Title = "选择文件";
-            openFileDialog.Filter = "Excel文件(*.xls;*.xlsx)|*.xls;*.xlsx|所有文件|*.*";
+            openFileDialog.Filter = "CSV文件(*.csv)|*.csv";
             openFileDialog.Multiselect = false;
 
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 textBoxFile.Text = openFileDialog.FileName;
             }
@@ -36,9 +37,24 @@ namespace SNCompareWithExcel
 
         private void textBoxSN_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if ((e.KeyCode == Keys.Enter) && (textBoxFile.Text.Length > 0) && (textBoxSN.Text.Length > 0))
             {
-                labelResult.BackColor = Color.Green;
+                using (TextFieldParser parser = new TextFieldParser(textBoxFile.Text))
+                {
+                    parser.TextFieldType = FieldType.Delimited;
+                    parser.SetDelimiters(",");
+                    while (!parser.EndOfData)
+                    {
+                        string[] fields = parser.ReadFields();
+                        foreach (string field in fields)
+                        {
+                            if (field == textBoxSN.Text)
+                            {
+                                labelResult.BackColor = Color.Red;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
