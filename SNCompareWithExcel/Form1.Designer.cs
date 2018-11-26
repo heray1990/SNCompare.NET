@@ -38,10 +38,12 @@
             // 
             // textBoxSN
             // 
+            this.textBoxSN.Enabled = false;
             this.textBoxSN.Location = new System.Drawing.Point(83, 12);
             this.textBoxSN.Name = "textBoxSN";
             this.textBoxSN.Size = new System.Drawing.Size(295, 21);
             this.textBoxSN.TabIndex = 0;
+            this.textBoxSN.Text = "请选择数据文件";
             // 
             // label1
             // 

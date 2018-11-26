@@ -24,12 +24,14 @@ namespace SNCompareWithExcel
             OpenFileDialog openFileDialog = new OpenFileDialog();
  
             openFileDialog.Title = "选择文件";
-            openFileDialog.Filter = "CSV文件(*.csv)|*.csv";
+            openFileDialog.Filter = "CSV (逗号分隔)(*.csv)|*.csv";
             openFileDialog.Multiselect = false;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 textBoxFile.Text = openFileDialog.FileName;
+                textBoxSN.Enabled = true;
+                textBoxSN.Text = "";
             }
 
             openFileDialog.Dispose();
@@ -39,6 +41,7 @@ namespace SNCompareWithExcel
         {
             if ((e.KeyCode == Keys.Enter) && (textBoxFile.Text.Length > 0) && (textBoxSN.Text.Length > 0))
             {
+                bool flagFailed = false;
                 using (TextFieldParser parser = new TextFieldParser(textBoxFile.Text))
                 {
                     parser.TextFieldType = FieldType.Delimited;
@@ -51,10 +54,26 @@ namespace SNCompareWithExcel
                             if (field == textBoxSN.Text)
                             {
                                 labelResult.BackColor = Color.Red;
+                                labelResult.Text = "FAIL";
+                                flagFailed = true;
+                                break;
                             }
                         }
+
+                        if (flagFailed == true)
+                        {
+                            break;
+                        }
+                    }
+
+                    if (flagFailed != true)
+                    {
+                        labelResult.BackColor = Color.Green;
+                        labelResult.Text = "PASS";
                     }
                 }
+
+                textBoxSN.Text = "";
             }
         }
     }
